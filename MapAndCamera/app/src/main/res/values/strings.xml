@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">MapsAndCamera</string>
+    <string name="maps">Maps</string>
+    <string name="latitude">Latitude</string>
+    <string name="longitude">Longitude</string>
+    <string name="error_lat_lon">Invalid lat and lon. Try again.</string>
+    <string name="current_location">Current Location</string>
+</resources>
