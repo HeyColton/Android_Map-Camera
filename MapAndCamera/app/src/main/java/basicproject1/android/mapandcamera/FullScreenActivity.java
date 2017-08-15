@@ -1,6 +1,5 @@
 package basicproject1.android.mapandcamera;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -40,8 +39,7 @@ public class FullScreenActivity extends AppCompatActivity implements GestureInte
         switch (gesture) {
             case TouchManager.DOUBLE_TAP:
                 // do something
-                Intent intent=new Intent(FullScreenActivity.this,MainActivity.class);
-                startActivity(intent);
+               finish();
         }
     }
 }
