@@ -2,6 +2,7 @@ package basicproject1.android.mapandcamera;
 
 import android.content.Context;
 import android.content.Intent;
+import android.content.res.Configuration;
 import android.os.Bundle;
 import android.support.v4.app.FragmentManager;
 import android.support.v7.app.AppCompatActivity;
@@ -26,9 +27,9 @@ public class MainActivity extends AppCompatActivity implements
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
         gd = new GestureDetector(this, new TouchManager(this));
         FragmentManager manager = getSupportFragmentManager();
-
 
         mMapsFragment = (MapsFragment)manager.findFragmentById(R.id.Main_Map);
         if(mMapsFragment == null) {
@@ -83,7 +84,20 @@ public class MainActivity extends AppCompatActivity implements
 
     @Override
     public boolean onTouchEvent(MotionEvent event){
-        return gd.onTouchEvent(event);
+        int orientation=getApplicationContext().getResources().getConfiguration().orientation;
+        if(orientation== Configuration.ORIENTATION_LANDSCAPE) {
+            if (event.getX() < findViewById(R.id.Main_Map).getRight()) {
+                return gd.onTouchEvent(event);
+            } else {
+                return true;
+            }
+        }else{
+            if (event.getY() < findViewById(R.id.Main_Map).getBottom()) {
+                return gd.onTouchEvent(event);
+            } else {
+                return true;
+            }
+        }
     }
     @Override
     public boolean dispatchTouchEvent(MotionEvent event){

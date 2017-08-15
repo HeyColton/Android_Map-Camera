@@ -41,6 +41,7 @@ public class MapsFragment extends SupportMapFragment {
     private float mZoom;
     private boolean isMyLocationSet;
 
+
     public MapsFragment() {
         // Required empty public constructor
     }
@@ -117,8 +118,6 @@ public class MapsFragment extends SupportMapFragment {
 
             }
         });
-
-
     }
 
 
@@ -205,5 +204,6 @@ public class MapsFragment extends SupportMapFragment {
             mMap.animateCamera(update);
         }
     }
+
 
 }
